@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Luke Storry CV</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script
+      src="https://unpkg.com/react@18/umd/react.production.min.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sono:wght@200..800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      html {
+        width: 100%;
+        font-size: 90%;
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        font-family: "Sono", monospace;
+        font-optical-sizing: auto;
+        font-style: normal;
+      }
+    </style>
+  </head>
+
+  <body
+    class="p-2 md:p-4 text-sm md:text-base max-w-5xl min-w-96 sm:m-1 md:m-6 lg:mx-auto border border-solid border-sky-500 shadow-lg rounded-lg print:border-none print:pb-0 print:px-4 print:m-0 print:shadow-none print:text-xs"
+  >
+    <header class="border-b border-sky-500 m-1 pb-4 text-center">
+      <h1 class="text-sky-500 text-3xl">Luke Storry</h1>
+      <p class="font-bold text-lg py-0 my-2">Full-stack Software Engineer</p>
+      <p>
+        With over 6 years of experience creating complex applications for a
+        range of businesses and industries, <br />
+        I am now looking for a new challenge; for a friendly and diverse team to
+        work with; <br />
+        and for an opportunity to use my varied skill-set to make a positive
+        difference to the world.
+      </p>
+    </header>
+
+    <div id="root" class="flex gap-2 md:gap-4">
+      Please connect to the internet to load the latest content here
+    </div>
+  </body>
+
+  <script type="text/babel">
+    ReactDOM.createRoot(document.getElementById("root")).render(
+      React.createElement(() => (
+        <>
+          <Left />
+          <Right />
+        </>
+      ))
+    );
+
+    const Left = () => (
+      <aside className="mt-2 pr-2 min-w-16 max-w-64 print:w-60">
+        <div id="contact" className="group">
+          <p>
+            +4478
+            <span className="group-hover:hidden print:hidden">XX XXXXXX</span>
+            <span className="hidden group-hover:inline print:inline">
+              05 925658
+            </span>
+          </p>
+          <p>
+            <a href="mailto:luke@storry.uk?subject=Great CV, want a job?">
+              Luke@Storry.uk
+            </a>
+          </p>
+          <p>
+            <a
+              className="flex flex-wrap w-full"
+              href="https://www.linkedin.com/in/lukestorry/"
+            >
+              LinkedIn.com/
+              <span className="font-bold block">LukeStorry</span>
+            </a>
+          </p>
+          <p>
+            <a
+              className="flex flex-wrap w-full"
+              href="https://GitHub.com/LukeStorry"
+            >
+              GitHub.com/
+              <span className="font-bold block">LukeStorry</span>
+            </a>
+          </p>
+        </div>
+        <Section
+          title="Education"
+          date="2014-2019"
+          details={[
+            "2.1 in MEng Computer Science at the University of Bristol",
+            "Focussed on User-centric Design, Product Development, and Machine Learning.",
+            "Published Dissertation on building & user-testing a mobile app for climbing training, using accelerometer and video data, awarded 'Best Software Project'.",
+          ]}
+        />
+
+        <Section
+          title="Climbing"
+          details={[
+            "I'm a fan of reaching new heights both at the desk and on the wall.",
+            "Regularly boulder at indoor walls, heading out to the mountains for longer lead-climbing trips.",
+            // "Built a acceleration-analysis app for climbing training, and studied its effectiveness as part of my Masters Thesis.",
+          ]}
+        />
+        <Section
+          title="Windsurfing"
+          details={[
+            "Love the thrill of both foiling and flat-water-blasting.",
+            "Have worked abroad as an instructor for multiple summer seasons, most recently managing a school in Vassiliki, Greece.",
+            "Volunteered for the SWA, a non-profit that promotes university windsurfing, in marketing and events-management.",
+          ]}
+        />
+        <Section
+          title="Fun Facts"
+          details={[
+            "I live on a narrowboat called Edward Arthur.",
+            "I self-converted a campervan for weekend adventures.",
+            "I can ride a unicycle.",
+          ]}
+        />
+      </aside>
+    );
+
+    const Right = () => (
+      <main className="min-w-3/5 print:w-9/12 px-2 md:pl-4 pb-4 print:pb-2 border-l border-sky-500 ">
+        <Section
+          title="Senior Software Engineer"
+          company="Let's Do This"
+          date="2022-Present"
+          stack={[
+            "Typescript",
+            "Node.js",
+            "Graphql",
+            "React",
+            "NextJs",
+            "GRPC",
+            "MongoDB",
+            "AWS",
+            // "Microservices",
+          ]}
+          details={[
+            "High-velocity fullstack engineer at a leading sports-event discovery and management startup.",
+            "Specialised in building out the more complex features for extremely high-stakes, high-load (>100 bookings-per-second) and record-breaking (>600k entrants) events such as the London Marathon Ballot.",
+            "Designed and implemented industry-leading verifications and payments mechanisms by combining vague partner requests into clearly-written feature-proposals and technical RFCs, then lead the team through precise and actionable cross-stack roadmaps, resulting in 5x efficiency improvements and 20% revenue increases.",
+            "Influenced and spearheaded various initiatives to improve code quality, including front-end design systems, cypress tests, and full backend typescript coverage.",
+            "Exhibited a proactive leadership style and calm positivity in high-pressure situations.",
+            "Collaborated with design, product, and external stakeholders to build and iterate on complex series of A/B tests to optimise metrics.",
+          ]}
+        />
+
+        <Section
+          title="Technical Consultant"
+          company="Ghyston"
+          date="2022"
+          stack={[
+            "DotNet",
+            "Terraform",
+            "Azure",
+            "React",
+            "Tailwind",
+            "Vue",
+            "Python",
+          ]}
+          details={[
+            "Planned, architected and costed large enterprise projects, culminating in multiple successful sales proposals.",
+            "Primary liaison between client and engineering team - established key user flows and helped deliver optimal solutions within budget.",
+            "Consulted with startups, advising on tech-stack, MVP, and product-market fit, with two successful solo-built MVPs.",
+          ]}
+        />
+
+        <Section
+          title="Tech Lead"
+          company="Ghyston"
+          date="2021"
+          stack={["Python", "AI/ML", "SQL", "DotNet", "D3.js"]}
+          details={[
+            "Mentored team-mates via a mixture of workshops, paired-programming and in-depth code reviews.",
+            "Ensured communication between front and backend teams on a large forecasting simulation for a government department, projected to save the taxpayer over £200M.",
+            "Carried out deep refactorings, replacing core data-models with production-ready code, improving performance by two orders of magnitude.",
+            "Analysed the validity of various Deep Learning Optimisation techniques, successfully demonstrating to stakeholders the value of further investment.",
+          ]}
+        />
+        <Section
+          title="Fullstack Developer"
+          company="Ghyston"
+          date="2019-2020"
+          stack={[
+            "C#",
+            ".NET",
+            "ReactNative",
+            "Typescript",
+            "SQL",
+            "Java",
+            "CSS",
+            "GCP",
+            "Azure",
+            "EFCore",
+          ]}
+          details={[
+            "Created interactive analytics dashboards to enable the digestion of millions of data-points.",
+            "Provided third-tier support for a range of bespoke business-critical software systems.",
+            "Client management, bug-fixes and feature development, often on legacy systems.",
+          ]}
+        />
+
+        <Section
+          title="Research Developer"
+          company="Swanbarton"
+          date="2018"
+          stack={["Python", "Embedded systems"]}
+          details={[
+            "Brought Python expertise to the R&D wing of an energy-storage-consultancy.",
+            "Strong focus on unit-testing whilst developing cutting-edge industrial solar-storage solutions and an energy-trading platform.",
+          ]}
+        />
+      </main>
+    );
+
+    const Section = ({ title, company, details, stack, date }) => (
+      <section className="pt-4 mt-4 border-t border-sky-500 first:border-none first:pt-0">
+        <h3 className="text-sky-500 text-base print:text-base sm:text-lg md:text-xl mb-2 md:mb-0">
+          {title}
+        </h3>
+        <div className="flex gap-2 md:gap-8 justify-between items-start">
+          <span>
+            {company && (
+              <span className="font-light pl-1 my-2"> {company} </span>
+            )}
+            {date && (
+              <span className="font-thin pl-1 lg:pl-3 my-2 text-nowrap">
+                {date}
+              </span>
+            )}
+          </span>
+          {stack && (
+            <span className="text-xs m-2 min-h-10 max-w-72 flex gap-2 flex-wrap justify-end lg:-mt-4 print:-mt-6 ">
+              {stack.map((s) => (
+                <mark className="px-1 h-4 text-white bg-sky-500 rounded-sm">
+                  {s}
+                </mark>
+              ))}
+            </span>
+          )}
+        </div>
+        <ul className="pl-4 list-disc">
+          {details.map((d) => (
+            <li>{d}</li>
+          ))}
+        </ul>
+      </section>
+    );
+  </script>
+</html>
