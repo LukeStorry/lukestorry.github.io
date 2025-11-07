@@ -1,273 +1,554 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-GB">
   <head>
     <meta charset="utf-8" />
-    <title>Luke Storry CV</title>
+    <title>Luke Storry - Lead Engineer CV</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script
-      src="https://unpkg.com/react@18/umd/react.production.min.js"
-      crossorigin
-    ></script>
-    <script
-      src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"
-      crossorigin
-    ></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <meta
+      name="description"
+      content="Luke Storry - Lead Software Engineer with over 7 years experience in full-stack development, AI/ML, and platform engineering"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Sono:wght@200..800&display=swap"
       rel="stylesheet"
     />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css"
-      rel="stylesheet"
-    />
-    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-      html {
-        width: 100%;
-        font-size: 90%;
-        padding: 0;
-        margin: 0;
+      :root {
+        --color: #42cdef;
       }
       body {
         font-family: "Sono", monospace;
-        font-optical-sizing: auto;
-        font-style: normal;
+        font-weight: 300;
+        max-width: 50rem;
+        margin: 0.5rem auto;
+        padding: 0.5rem 1rem;
+        border: 1px solid var(--color);
+        border-radius: 0.5rem;
+        box-shadow: 0 10px 15px -3px rgba(14, 165, 233, 0.1);
+      }
+      h1,
+      h2,
+      h3 {
+        color: var(--color);
+        font-weight: 300;
+        margin: 0;
+      }
+      p {
+        margin: 0.5rem 0;
+      }
+      .subtitle {
+        font-size: 1.2rem;
+        font-weight: 500;
+      }
+      a {
+        color: black;
+        font-weight: 300;
+        font-size: 0.75rem;
+      }
+      ul {
+        margin: 0.5rem 0;
+        padding-left: 0.5rem;
+      }
+      li {
+        font-weight: 300;
+      }
+      ul:not(.tech) > li::marker {
+        content: ">\2009";
+        color: var(--color);
+        font-weight: 600;
+      }
+
+      /* Header */
+      header {
+        text-align: center;
+        border-bottom: 1px solid var(--color);
+        position: relative;
+        padding-bottom: 0.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      /* Layout */
+      .cv-content {
+        display: flex;
+        margin-top: -0.5rem;
+        gap: 0.75rem;
+      }
+      aside {
+        width: 12rem;
+        border-right: 1px solid var(--color);
+        padding-right: 0.75rem;
+      }
+      section {
+        border-top: 1px solid var(--color);
+        padding-top: 0.5rem;
+        margin-top: 0.5rem;
+      }
+      section:first-of-type {
+        border-top: none;
+        margin-top: -0.25rem;
+      }
+
+      /* Buttons */
+      button {
+        background: var(--color);
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+        border-radius: 0.25rem;
+        font-weight: 600;
+        transition: all 0.2s;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+      }
+      button:hover,
+      button:focus {
+        background: #0c7fa8;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      button:active {
+        transform: translateY(0);
+      }
+
+      /* Phone reveal */
+      .phone-visible {
+        display: none;
+      }
+      #contact:hover .phone-hidden,
+      #contact:focus-within .phone-hidden {
+        display: none;
+      }
+      #contact:hover .phone-visible,
+      #contact:focus-within .phone-visible {
+        display: inline;
+      }
+
+      /* Contact bold */
+      #contact a {
+        text-decoration: none;
+      }
+      #contact a span {
+        font-weight: 700;
+      }
+
+      .location {
+        font-weight: 300;
+      }
+      .date {
+        font-weight: 200;
+      }
+      .section-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+      .section-header h3 {
+        flex: 0 0 100%;
+      }
+
+      .tech {
+        max-width: 50%;
+        margin-top: -1.5rem;
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        padding: 0;
+        gap: 0.25rem;
+        justify-content: flex-end;
+      }
+      .tech li {
+        padding: 0.125rem 0.375rem;
+        font-size: 0.75rem;
+        color: white;
+        background: var(--color);
+        border-radius: 0.125rem;
+      }
+
+      /* Hide mobile heading by default */
+      .mobile-sidebar-heading {
+        display: none;
+        font-size: 0.875rem;
+        font-weight: 400;
+        margin-top: 0;
+        opacity: 0.8;
+      }
+
+      /* Mobile: sidebar below main */
+      @media (max-width: 700px) {
+        .cv-content {
+          flex-direction: column-reverse;
+        }
+        .mobile-sidebar-heading {
+          display: block;
+        }
+        aside {
+          border-right: none;
+          border-top: 1px solid var(--color);
+          padding-right: 0;
+        }
+        button {
+          position: static;
+          display: block;
+          margin: 0 auto;
+        }
+        .section-header h3 {
+          flex: 2;
+        }
+        .tech {
+          max-width: 100%;
+          margin-top: 0;
+          justify-content: center;
+        }
+      }
+
+      @media (min-width: 550px) and (max-width: 750px) {
+        html {
+          font-size: 110%;
+        }
+      }
+
+      /* Print: hide button, show phone */
+      @media print {
+        html,
+        body {
+          font-size: 80%;
+          margin: none;
+          max-width: none;
+          padding: none;
+          border: none;
+          box-shadow: none;
+        }
+        button,
+        .mobile-sidebar-heading {
+          display: none;
+        }
+        .phone-hidden {
+          display: none;
+        }
+        .phone-visible {
+          display: inline;
+        }
       }
     </style>
   </head>
 
-  <body
-    class="p-2 md:p-4 text-sm md:text-base max-w-5xl min-w-96 sm:m-1 md:m-6 lg:mx-auto border border-solid border-sky-500 shadow-lg rounded-lg print:border-none print:pb-0 print:px-4 print:m-0 print:shadow-none print:text-xs"
-  >
-    <header class="border-b border-sky-500 m-1 pb-4 text-center">
-      <h1 class="text-sky-500 text-3xl">Luke Storry</h1>
-      <p class="font-bold text-lg py-0 my-2">Full-stack Software Engineer</p>
+  <body>
+    <header>
+      <h1>Luke Storry</h1>
+      <p class="subtitle" role="doc-subtitle">Lead Software Engineer</p>
       <p>
-        With over 6 years of experience creating complex applications for a
+        With over 7 years of experience building complex applications for a
         range of businesses and industries, <br />
-        I am now looking for a new challenge; for a friendly and diverse team to
-        work with; <br />
+        I am now up for a new challenge; for a friendly and diverse team to work
+        with; <br />
         and for an opportunity to use my varied skill-set to make a positive
         difference to the world.
       </p>
+      <button onclick="window.print()" aria-label="Download or print CV">
+        Download PDF
+      </button>
     </header>
 
-    <div id="root" class="flex gap-2 md:gap-4">
-      Please connect to the internet to load the latest content here
-    </div>
-  </body>
-
-  <script type="text/babel">
-    ReactDOM.createRoot(document.getElementById("root")).render(
-      React.createElement(() => (
-        <>
-          <Left />
-          <Right />
-        </>
-      ))
-    );
-
-    const Left = () => (
-      <aside className="mt-2 pr-2 min-w-16 max-w-64 print:w-60">
-        <div id="contact" className="group">
+    <div class="cv-content">
+      <aside role="complementary" aria-label="Personal information and skills">
+        <h2 class="mobile-sidebar-heading">Personal Information & Interests</h2>
+        <section id="contact" aria-label="Contact information">
           <p>
-            +4478
-            <span className="group-hover:hidden print:hidden">XX XXXXXX</span>
-            <span className="hidden group-hover:inline print:inline">
-              05 925658
+            <span aria-label="Phone number (tap or hover to reveal)">
+              +4478<span class="phone-hidden" aria-hidden="true">XX XXXXXX</span
+              ><span class="phone-visible">05 925658</span>
             </span>
           </p>
           <p>
-            <a href="mailto:luke@storry.uk?subject=Great CV, want a job?">
+            <a
+              href="mailto:luke@storry.uk?subject=Great CV, want a job?"
+              aria-label="Email Luke Storry"
+            >
               Luke@Storry.uk
             </a>
           </p>
           <p>
             <a
-              className="flex flex-wrap w-full"
               href="https://www.linkedin.com/in/lukestorry/"
+              aria-label="LinkedIn profile"
             >
-              LinkedIn.com/
-              <span className="font-bold block">LukeStorry</span>
+              LinkedIn.com/<span>LukeStorry</span>
             </a>
           </p>
           <p>
-            <a
-              className="flex flex-wrap w-full"
-              href="https://GitHub.com/LukeStorry"
-            >
-              GitHub.com/
-              <span className="font-bold block">LukeStorry</span>
+            <a href="https://GitHub.com/LukeStorry" aria-label="GitHub profile">
+              GitHub.com/<span>LukeStorry</span>
             </a>
           </p>
-        </div>
-        <Section
-          title="Education"
-          date="2014-2019"
-          details={[
-            "2.1 in MEng Computer Science at the University of Bristol",
-            "Focussed on User-centric Design, Product Development, and Machine Learning.",
-            "Published Dissertation on building & user-testing a mobile app for climbing training, using accelerometer and video data, awarded 'Best Software Project'.",
-          ]}
-        />
+        </section>
 
-        <Section
-          title="Climbing"
-          details={[
-            "I'm a fan of reaching new heights both at the desk and on the wall.",
-            "Regularly boulder at indoor walls, heading out to the mountains for longer lead-climbing trips.",
-            // "Built a acceleration-analysis app for climbing training, and studied its effectiveness as part of my Masters Thesis.",
-          ]}
-        />
-        <Section
-          title="Windsurfing"
-          details={[
-            "Love the thrill of both foiling and flat-water-blasting.",
-            "Have worked abroad as an instructor for multiple summer seasons, most recently managing a school in Vassiliki, Greece.",
-            "Volunteered for the SWA, a non-profit that promotes university windsurfing, in marketing and events-management.",
-          ]}
-        />
-        <Section
-          title="Fun Facts"
-          details={[
-            "I live on a narrowboat called Edward Arthur.",
-            "I self-converted a campervan for weekend adventures.",
-            "I can ride a unicycle.",
-          ]}
-        />
+        <section>
+          <div class="section-header">
+            <h3>Education</h3>
+            <span class="date">2014-2019</span>
+          </div>
+          <ul>
+            <li>2.1 in MEng Computer Science at the University of Bristol</li>
+            <li>
+              Focussed on User-centric Design, Product Development, and Machine
+              Learning.
+            </li>
+            <li>
+              Published Dissertation on building & user-testing a mobile app for
+              climbing training, using accelerometer and video data, awarded
+              'Best Software Project'.
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Climbing</h3>
+          <ul>
+            <li>
+              I'm a fan of reaching new heights both at the desk and on the
+              wall.
+            </li>
+            <li>
+              Regularly boulder at indoor walls, heading out to the mountains
+              for longer lead-climbing trips.
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Windsurfing</h3>
+          <ul>
+            <li>Love the thrill of both foiling and flat-water-blasting.</li>
+            <li>
+              Have worked abroad as an instructor for multiple summer seasons,
+              most recently managing a school in Vassiliki, Greece.
+            </li>
+            <li>
+              Volunteered for the SWA, a non-profit that promotes university
+              windsurfing, in marketing and events-management.
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Fun Facts</h2>
+          <ul>
+            <li>I live on a houseboat called Alice Rose.</li>
+            <li>I self-converted a campervan for weekend adventures.</li>
+            <li>I can ride a unicycle.</li>
+          </ul>
+        </section>
       </aside>
-    );
 
-    const Right = () => (
-      <main className="min-w-3/5 print:w-9/12 px-2 md:pl-4 pb-4 print:pb-2 border-l border-sky-500 ">
-        <Section
-          title="Senior Software Engineer"
-          company="Let's Do This"
-          date="2022-Present"
-          stack={[
-            "Typescript",
-            "Node.js",
-            "Graphql",
-            "React",
-            "NextJs",
-            "GRPC",
-            "MongoDB",
-            "AWS",
-            // "Microservices",
-          ]}
-          details={[
-            "High-velocity fullstack engineer at a leading sports-event discovery and management startup.",
-            "Specialised in building out the more complex features for extremely high-stakes, high-load (>100 bookings-per-second) and record-breaking (>600k entrants) events such as the London Marathon Ballot.",
-            "Designed and implemented industry-leading verifications and payments mechanisms by combining vague partner requests into clearly-written feature-proposals and technical RFCs, then lead the team through precise and actionable cross-stack roadmaps, resulting in 5x efficiency improvements and 20% revenue increases.",
-            "Influenced and spearheaded various initiatives to improve code quality, including front-end design systems, cypress tests, and full backend typescript coverage.",
-            "Exhibited a proactive leadership style and calm positivity in high-pressure situations.",
-            "Collaborated with design, product, and external stakeholders to build and iterate on complex series of A/B tests to optimise metrics.",
-          ]}
-        />
+      <main role="main" aria-label="Work experience">
+        <section aria-labelledby="job-faculty">
+          <div class="section-header">
+            <h3 id="job-faculty">Lead Engineer</h3>
+            <span class="location">Faculty AI</span>
+            <span class="date">2024-Present</span>
+            <ul class="tech">
+              <li>Typescript</li>
+              <li>React</li>
+              <li>Python</li>
+              <li>Tailwind</li>
+              <li>AI/ML</li>
+              <li>Rust</li>
+              <li>K8s</li>
+              <li>Agents</li>
+            </ul>
+          </div>
+          <ul>
+            <li>
+              Lead a cross-functional squad building Faculty Frontier™ Decision
+              Intelligence Platform, owning architecture and technical strategy
+              across Decision Hub infrastructure, Specialist Agents framework,
+              and DevX-focused packages.
+            </li>
+            <li>
+              Achieved ~93% TypeScript code reuse across projects through highly
+              configurable systems, reducing time-to-value from weeks to days
+              and enabling data scientists to deploy production-ready
+              applications with minimal frontend experience.
+            </li>
+            <li>
+              Balance rapid prototyping and customer needs against longer-term
+              technical roadmap and clean architecture through product and
+              technical RFCs, unblocking multiple delivery teams.
+            </li>
+            <li>
+              Scaled unified frontend from one customer to many, powering
+              hundreds of impactful decisions across life sciences, healthcare,
+              and Fortune 500 enterprises with consequences worth millions to
+              billions.
+            </li>
+          </ul>
+        </section>
 
-        <Section
-          title="Technical Consultant"
-          company="Ghyston"
-          date="2022"
-          stack={[
-            "DotNet",
-            "Terraform",
-            "Azure",
-            "React",
-            "Tailwind",
-            "Vue",
-            "Python",
-          ]}
-          details={[
-            "Planned, architected and costed large enterprise projects, culminating in multiple successful sales proposals.",
-            "Primary liaison between client and engineering team - established key user flows and helped deliver optimal solutions within budget.",
-            "Consulted with startups, advising on tech-stack, MVP, and product-market fit, with two successful solo-built MVPs.",
-          ]}
-        />
+        <section>
+          <div class="section-header">
+            <h3>Senior Software Engineer</h3>
+            <span class="location">Let's Do This</span>
+            <span class="date">2022-2024</span>
+            <ul class="tech">
+              <li>Typescript</li>
+              <li>Node.js</li>
+              <li>Graphql</li>
+              <li>React</li>
+              <li>NextJs</li>
+              <li>GRPC</li>
+              <li>MongoDB</li>
+              <li>AWS</li>
+            </ul>
+          </div>
+          <ul>
+            <li>
+              High-velocity fullstack engineer at a leading sports-event
+              discovery and management startup.
+            </li>
+            <li>
+              Specialised in building out the more complex features for
+              extremely high-stakes, high-load (>100 bookings-per-second) and
+              record-breaking (>600k entrants) events such as the London
+              Marathon Ballot.
+            </li>
+            <li>
+              Designed and implemented industry-leading verifications and
+              payments mechanisms by combining vague partner requests into
+              clearly-written feature-proposals and technical RFCs, then lead
+              the team through precise and actionable cross-stack roadmaps,
+              resulting in 5x efficiency improvements and 20% revenue increases.
+            </li>
+            <li>
+              Influenced and spearheaded various initiatives to improve code
+              quality, including front-end design systems, cypress tests, and
+              full backend typescript coverage.
+            </li>
+            <li>
+              Exhibited a proactive leadership style and calm positivity in
+              high-pressure situations.
+            </li>
+            <li>
+              Collaborated with design, product, and external stakeholders to
+              build and iterate on complex series of A/B tests to optimise
+              metrics.
+            </li>
+          </ul>
+        </section>
 
-        <Section
-          title="Tech Lead"
-          company="Ghyston"
-          date="2021"
-          stack={["Python", "AI/ML", "SQL", "DotNet", "D3.js"]}
-          details={[
-            "Mentored team-mates via a mixture of workshops, paired-programming and in-depth code reviews.",
-            "Ensured communication between front and backend teams on a large forecasting simulation for a government department, projected to save the taxpayer over £200M.",
-            "Carried out deep refactorings, replacing core data-models with production-ready code, improving performance by two orders of magnitude.",
-            "Analysed the validity of various Deep Learning Optimisation techniques, successfully demonstrating to stakeholders the value of further investment.",
-          ]}
-        />
-        <Section
-          title="Fullstack Developer"
-          company="Ghyston"
-          date="2019-2020"
-          stack={[
-            "C#",
-            ".NET",
-            "ReactNative",
-            "Typescript",
-            "SQL",
-            "Java",
-            "CSS",
-            "GCP",
-            "Azure",
-            "EFCore",
-          ]}
-          details={[
-            "Created interactive analytics dashboards to enable the digestion of millions of data-points.",
-            "Provided third-tier support for a range of bespoke business-critical software systems.",
-            "Client management, bug-fixes and feature development, often on legacy systems.",
-          ]}
-        />
+        <section>
+          <div class="section-header">
+            <h3>Lead Technical Consultant</h3>
+            <span class="location">Ghyston</span>
+            <span class="date">2021-2022</span>
+            <ul class="tech">
+              <li>DotNet</li>
+              <li>Terraform</li>
+              <li>Azure</li>
+              <li>React</li>
+              <li>Vue</li>
+              <li>Python</li>
+              <li>AI/ML</li>
+              <li>SQL</li>
+              <li>D3.js</li>
+            </ul>
+          </div>
+          <ul>
+            <li>
+              Planned, architected and costed large enterprise projects,
+              culminating in multiple successful sales proposals.
+            </li>
+            <li>
+              Primary liaison between client and engineering team - established
+              key user flows and helped deliver optimal solutions within budget.
+            </li>
+            <li>
+              Consulted with startups, advising on tech-stack, MVP, and
+              product-market fit, with two successful solo-built MVPs.
+            </li>
+            <li>
+              Mentored team-mates via a mixture of workshops, paired-programming
+              and in-depth code reviews.
+            </li>
+            <li>
+              Ensured communication between front and backend teams on a large
+              forecasting simulation for a government department, projected to
+              save the taxpayer over £200M.
+            </li>
+            <li>
+              Carried out deep refactorings, replacing core data-models with
+              production-ready code, improving performance by two orders of
+              magnitude.
+            </li>
+            <li>
+              Analysed the validity of various Deep Learning Optimisation
+              techniques, successfully demonstrating to stakeholders the value
+              of further investment.
+            </li>
+          </ul>
+        </section>
 
-        <Section
-          title="Research Developer"
-          company="Swanbarton"
-          date="2018"
-          stack={["Python", "Embedded systems"]}
-          details={[
-            "Brought Python expertise to the R&D wing of an energy-storage-consultancy.",
-            "Strong focus on unit-testing whilst developing cutting-edge industrial solar-storage solutions and an energy-trading platform.",
-          ]}
-        />
+        <section>
+          <div class="section-header">
+            <h3>Fullstack Developer</h3>
+            <span class="location">Ghyston</span>
+            <span class="date">2019-2020</span>
+            <ul class="tech">
+              <li>C#</li>
+              <li>.NET</li>
+              <li>ReactNative</li>
+              <li>Typescript</li>
+              <li>SQL</li>
+              <li>Java</li>
+              <li>CSS</li>
+              <li>GCP</li>
+              <li>Azure</li>
+              <li>EFCore</li>
+            </ul>
+          </div>
+          <ul>
+            <li>
+              Created interactive analytics dashboards to enable the digestion
+              of millions of data-points.
+            </li>
+            <li>
+              Provided third-tier support for a range of bespoke
+              business-critical software systems.
+            </li>
+            <li>
+              Client management, bug-fixes and feature development, often on
+              legacy systems.
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <div class="section-header">
+            <h3>Research Developer</h3>
+            <span class="location">Swanbarton</span>
+            <span class="date">2018</span>
+            <ul class="tech">
+              <li>Python</li>
+              <li>Embedded systems</li>
+            </ul>
+          </div>
+          <ul>
+            <li>
+              Brought Python expertise to the R&D wing of an
+              energy-storage-consultancy.
+            </li>
+            <li>
+              Strong focus on unit-testing whilst developing cutting-edge
+              industrial solar-storage solutions and an energy-trading platform.
+            </li>
+          </ul>
+        </section>
       </main>
-    );
-
-    const Section = ({ title, company, details, stack, date }) => (
-      <section className="pt-4 mt-4 border-t border-sky-500 first:border-none first:pt-0">
-        <h3 className="text-sky-500 text-base print:text-base sm:text-lg md:text-xl mb-2 md:mb-0">
-          {title}
-        </h3>
-        <div className="flex gap-2 md:gap-8 justify-between items-start">
-          <span>
-            {company && (
-              <span className="font-light pl-1 my-2"> {company} </span>
-            )}
-            {date && (
-              <span className="font-thin pl-1 lg:pl-3 my-2 text-nowrap">
-                {date}
-              </span>
-            )}
-          </span>
-          {stack && (
-            <span className="text-xs m-2 min-h-10 max-w-72 flex gap-2 flex-wrap justify-end lg:-mt-4 print:-mt-6 ">
-              {stack.map((s) => (
-                <mark className="px-1 h-4 text-white bg-sky-500 rounded-sm">
-                  {s}
-                </mark>
-              ))}
-            </span>
-          )}
-        </div>
-        <ul className="pl-4 list-disc">
-          {details.map((d) => (
-            <li>{d}</li>
-          ))}
-        </ul>
-      </section>
-    );
-  </script>
+    </div>
+  </body>
 </html>
