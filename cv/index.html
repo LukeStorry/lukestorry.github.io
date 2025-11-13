@@ -23,7 +23,7 @@
       body {
         font-family: "Sono", monospace;
         font-weight: 300;
-        max-width: 50rem;
+        max-width: 60rem;
         margin: 0.5rem auto;
         padding: 0.5rem 1rem;
         border: 1px solid var(--color);
@@ -47,7 +47,6 @@
       a {
         color: black;
         font-weight: 300;
-        font-size: 0.75rem;
       }
       ul {
         margin: 0.5rem 0;
@@ -79,7 +78,7 @@
         gap: 0.75rem;
       }
       aside {
-        width: 12rem;
+        width: 14rem;
         border-right: 1px solid var(--color);
         padding-right: 0.75rem;
       }
@@ -92,8 +91,11 @@
         border-top: none;
         margin-top: -0.25rem;
       }
+      aside section {
+        padding-top: 1.75rem;
+        padding-bottom: 1rem;
+      }
 
-      /* Buttons */
       .download-button {
         background: var(--color);
         color: white;
@@ -191,6 +193,9 @@
         .mobile-sidebar-heading {
           display: block;
         }
+        section {
+          padding: 1rem;
+        }
         aside {
           border-right: none;
           border-top: 1px solid var(--color);
@@ -228,6 +233,10 @@
           padding: none;
           border: none;
           box-shadow: none;
+        }
+        aside section {
+          padding-top: 1rem;
+          padding-bottom: 0.25rem;
         }
         .download-button,
         .mobile-sidebar-heading {
@@ -347,7 +356,7 @@
         </section>
 
         <section>
-          <h2>Fun Facts</h2>
+          <h3>Fun Facts</h3>
           <ul>
             <li>I live on a houseboat called Alice Rose.</li>
             <li>I self-converted a campervan for weekend adventures.</li>
