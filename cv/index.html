@@ -93,7 +93,7 @@
       }
 
       /* Buttons */
-      button {
+      .download-button {
         background: var(--color);
         color: white;
         border: none;
@@ -105,14 +105,16 @@
         position: absolute;
         top: 1rem;
         right: 1rem;
+        text-decoration: none;
+        display: inline-block;
       }
-      button:hover,
-      button:focus {
+      .download-button:hover,
+      .download-button:focus {
         background: #0c7fa8;
         transform: translateY(-2px);
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       }
-      button:active {
+      .download-button:active {
         transform: translateY(0);
       }
 
@@ -194,7 +196,7 @@
           padding-right: 0;
           width: auto;
         }
-        button {
+        .download-button {
           position: static;
           display: block;
           margin: 0 auto;
@@ -226,7 +228,7 @@
           border: none;
           box-shadow: none;
         }
-        button,
+        .download-button,
         .mobile-sidebar-heading {
           display: none;
         }
@@ -253,9 +255,13 @@
         and for an opportunity to use my varied skill-set to make a positive
         difference to the world.
       </p>
-      <button onclick="window.print()" aria-label="Download or print CV">
+      <a
+        class="download-button"
+        href="./Luke Storry - Lead Product Engineer CV.pdf"
+        download
+      >
         Download PDF
-      </button>
+      </a>
     </header>
 
     <div class="cv-content">
